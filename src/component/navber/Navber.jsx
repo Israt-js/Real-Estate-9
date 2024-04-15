@@ -43,15 +43,14 @@ const Navber = () => {
             </div>
             <div className="navbar-end">
                 <ul className="flex">
-                  
-                  <li className="btn btn-success text-white m-1"><a onClick={handleLogOut} href="">LogOut</a></li>
+                <li><Link className="btn btn-success text-white m-1" to={'/login'}>Login</Link></li>
                   {
                     user ?<>
                     <span>{user.email}</span>
 
                     </>
                     :
-                    <li><Link className="btn btn-success text-white m-1" to={'/login'}>Login</Link></li>
+                  <li className="btn btn-success text-white m-1"><a onClick={handleLogOut} href="">LogOut</a></li>
                   }
                 </ul>
             </div>
