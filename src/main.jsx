@@ -5,7 +5,10 @@ import App from './App.jsx';
 import './index.css';
 import Roote from './component/roote/Roote.jsx';
 import ErrorPage from './ErrorPage.jsx';
-import Home from './component/hame/Home.jsx';
+import Home from './component/Home/Home.jsx';
+import RegisterPage from './component/Register/RegisterPage.jsx';
+import Login from './component/Login/Login.jsx';
+import AuthProvider from './Provider/AuthProvider.jsx';
 
 const router = createBrowserRouter([
   {
@@ -17,13 +20,23 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/register',
+        element: <RegisterPage></RegisterPage>,
+      }
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+   <AuthProvider>
+   <RouterProvider router={router} />
+   </AuthProvider>
   </React.StrictMode>
 );
 

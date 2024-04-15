@@ -7,7 +7,7 @@ const Home = () => {
     <h2 className="card-title">New album is released!</h2>
     <p>Click the button to listen on Spotiwhy app.</p>
     <div className="card-actions justify-end">
-      <button className="btn btn-primary">Listen</button>
+      <button className="btn btn-success text-white">Listen</button>
     </div>
   </div>
 </div>
