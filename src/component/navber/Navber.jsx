@@ -40,18 +40,6 @@ const Navber = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                {/* <ul className="flex">
-                <li><Link className="btn btn-success text-white m-1" to={'/login'}>Login</Link></li>
-                  {
-                    user ?<>
-                    <span>{user.email}</span>
-
-                    </>
-                    :
-                    <li className="btn btn-success text-white m-1"><a onClick={handleLogOut} href="">LogOut</a></li>
-                  }
-                </ul> */}
-
                 <ul className="flex">
                     {
                         user ? 

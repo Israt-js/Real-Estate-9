@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
-import auth from '../Firebase-config/firebase.config';
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { FaGoogle } from 'react-icons/fa';
+import { FaGoogle,FaFacebook } from 'react-icons/fa';
+import auth, { provider } from '../Firebase-config/firebase.config';
 
 const Login = () => {
   const { signInUser } = useContext(AuthContext);
@@ -37,11 +37,34 @@ const Login = () => {
     })
   }
 
+  const HandleFacebookAuth = () =>{
+    signInWithPopup(auth, provider)
+    .then(result =>{
+     setUser(result.user)
+    })
+    .catch(error => {
+        console.log(error);
+    });
+  
+  }
+
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form onSubmit={handleSubmit} className="card-body">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input type="text" name="name" placeholder="Type your name" className="input input-bordered" required />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">PhotoURL</span>
+              </label>
+              <input type="image" name="image" placeholder="Type image source" className="input input-bordered" required />
+            </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -58,11 +81,11 @@ const Login = () => {
               <button type="submit" className="btn btn-primary">Login</button>
             </div>
           </form>
-          <p>Don't have an account? <Link to={'/register'}>Register</Link></p> <br /><br />
           <div className="">
             <button  className='btn w-full mb-2' onClick={handleLogInWithPopup}> <FaGoogle /> Google login</button>
-            <button className='btn btn-primary w-full text-white'>Facebook</button>
+            <button onClick={HandleFacebookAuth} className='btn btn-primary w-full text-white'> <FaFacebook/> Facebook</button>
       </div>
+      <p>Don't have an account? <Link to={'/register'}>Register</Link></p>
         </div>
       </div>
 

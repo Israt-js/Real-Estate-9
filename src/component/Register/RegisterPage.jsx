@@ -5,18 +5,19 @@ import { AuthContext } from '../../Provider/AuthProvider';
 const RegisterPage = () => {
   const { createUser } = useContext(AuthContext);
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(email, password);
     createUser(email, password)
-      .then(result => {
-        console.log(result.user)
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    .then(result => {
+      console.log(result.user)
+      e.target.reset();
+    })
+    .catch(error => {
+      console.log(error);
+    })
   };
 
   return (
