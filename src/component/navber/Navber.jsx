@@ -6,9 +6,7 @@ const Navber = () => {
     const { user, logOut } = useContext(AuthContext);
     const handleLogOut = () => {
         logOut()
-        .then(result => {
-            console.log(result);
-        })
+        .then(() => console.log('SUCCESSFULL'))
         .catch(error =>{
             console.log(error)
         })
@@ -30,7 +28,7 @@ const Navber = () => {
                         <li><Link to={'/contact'}>Contact</Link></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <a className="btn btn-ghost text-xl">Re<span className="text-green-700">A</span>l Es<span className="text-green-700">T</span>ate</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -42,7 +40,7 @@ const Navber = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <ul className="flex">
+                {/* <ul className="flex">
                 <li><Link className="btn btn-success text-white m-1" to={'/login'}>Login</Link></li>
                   {
                     user ?<>
@@ -50,8 +48,21 @@ const Navber = () => {
 
                     </>
                     :
-                  <li className="btn btn-success text-white m-1"><a onClick={handleLogOut} href="">LogOut</a></li>
+                    <li className="btn btn-success text-white m-1"><a onClick={handleLogOut} href="">LogOut</a></li>
                   }
+                </ul> */}
+
+                <ul className="flex">
+                    {
+                        user ? 
+                        <>
+                            <li><img src={user.photoURL} alt="User" className="rounded-full h-8 w-8 mr-2" /></li>
+                            <li><span>{user.displayName}</span></li>
+                            <li className="btn btn-success text-white m-1"><a onClick={handleLogOut} href="#">LogOut</a></li>
+                        </>
+                        :
+                        <li><Link className="btn btn-success text-white m-1" to={'/login'}>Login</Link></li>
+                    }
                 </ul>
             </div>
         </div>

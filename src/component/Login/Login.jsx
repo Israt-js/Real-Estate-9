@@ -1,6 +1,9 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import auth from '../Firebase-config/firebase.config';
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
   const { signInUser } = useContext(AuthContext);
@@ -20,6 +23,19 @@ const Login = () => {
       })
       
   };
+
+  const handleLogInWithPopup = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+    .then(result => {
+        const user = result.user;
+        console.log(user)
+        setUser(user);
+    })
+    .catch(error => {
+        console.log('error', error.message)
+    })
+  }
 
   return (
     <div>
@@ -42,9 +58,14 @@ const Login = () => {
               <button type="submit" className="btn btn-primary">Login</button>
             </div>
           </form>
-          <p>Already have an account? <Link to={'/register'} >Register</Link> </p>
+          <p>Don't have an account? <Link to={'/register'}>Register</Link></p> <br /><br />
+          <div className="">
+            <button  className='btn w-full mb-2' onClick={handleLogInWithPopup}> <FaGoogle /> Google login</button>
+            <button className='btn btn-primary w-full text-white'>Facebook</button>
+      </div>
         </div>
       </div>
+
     </div>
   );
 };
