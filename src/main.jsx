@@ -9,6 +9,8 @@ import Home from './component/Home/Home.jsx';
 import RegisterPage from './component/Register/RegisterPage.jsx';
 import Login from './component/Login/Login.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
+import EastateDtails from './component/EastateDetails/EastateDetails.jsx';
+import PrivateRout from './component/roote/PrivateRout.jsx';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/:id",
+        element: <PrivateRout><EastateDtails></EastateDtails></PrivateRout>,
       },
       {
         path: '/login',

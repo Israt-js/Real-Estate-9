@@ -22,7 +22,6 @@ const Navber = () => {
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to={'/'}>Home</Link></li>
-                        <li><Link to={'/updateprofile'}>Update Profile</Link></li>
                         <li><Link to={'/userprofile'}>User profile</Link></li>
                         <li><Link to={'/register'}>Register</Link></li>
                         <li><Link to={'/contact'}>Contact</Link></li>
@@ -33,19 +32,17 @@ const Navber = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li><Link to={'/'}>Home</Link></li>
-                    <li><Link to={'/updateprofile'}>Update Profile</Link></li>
                     <li><Link to={'/userprofile'}>User profile</Link></li>
                     <li><Link to={'/register'}>Register</Link></li>
                     <li><Link to={'/contact'}>Contact</Link></li>
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end" data-aos="flip-left">
                 <ul className="flex">
                     {
                         user ? 
                         <>
-                            <li><img src={user.photoURL} alt="User" className="rounded-full h-8 w-8 mr-2" /></li>
-                            <li><span>{user.displayName}</span></li>
+                            <li><img src={user.photoURL} alt="User" title={user.displayName} className="rounded-full h-8 w-8 mr-2" /></li>
                             <li className="btn btn-success text-white m-1"><a onClick={handleLogOut} href="#">LogOut</a></li>
                         </>
                         :

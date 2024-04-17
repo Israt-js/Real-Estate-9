@@ -32,7 +32,7 @@ import 'react-toastify/dist/ReactToastify.css';
       console.log(result.user)
       setSuccess('Successfully created User');
       toast.success('Successfully registered!', {
-        position: toast.POSITION.TOP_CENTER,
+
       });
       e.target.reset();
     })
@@ -46,6 +46,7 @@ import 'react-toastify/dist/ReactToastify.css';
     <div>
       <div className="hero min-h-screen bg-base-200">
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <h1 className="text-5xl font-bold">Register</h1>
           <form onSubmit={handleSubmit} className="card-body">
           <div className="form-control">
               <label className="label">
