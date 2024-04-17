@@ -11,6 +11,7 @@ import Login from './component/Login/Login.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
 import EastateDtails from './component/EastateDetails/EastateDetails.jsx';
 import PrivateRout from './component/roote/PrivateRout.jsx';
+import UserProfile from './component/UserProfile/UserProfile.jsx';
 
 const router = createBrowserRouter([
   {
@@ -23,12 +24,18 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "/:id",
+        path: "/eastate/:id",
         element: <PrivateRout><EastateDtails></EastateDtails></PrivateRout>,
+        loader: () => fetch('../public/residence.json')
+      },
+      {
+        path: "/userprofile",
+        element: <UserProfile></UserProfile>
       },
       {
         path: '/login',
         element: <Login></Login>
+
       },
       {
         path: '/register',

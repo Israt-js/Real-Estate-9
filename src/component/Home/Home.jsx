@@ -23,17 +23,36 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="w-96 ml-[0%] carousel rounded-box m-2">
-          <div className="carousel-item w-full">
-            <img src="https://i.ibb.co/89rz8P5/one.jpg" alt="one" className="w-full" border="0"></img>
-          </div>
-          <div className="carousel-item w-full">
-            <img src="https://i.ibb.co/rZkLdXk/two.jpg" className="w-full" alt="two" border="0"></img>
-          </div>
-          <div className="carousel-item w-full">
-            <img src="https://i.ibb.co/TkKbChj/three.jpg" alt="three" className="w-full" border="0"></img>
-          </div>
-        </div>
+<div className="carousel w-full md:w-[45%] lg:w-[50%] rounded-md">
+  <div id="slide1" className="carousel-item relative w-full">
+    <img src="https://i.ibb.co/89rz8P5/one.jpg" className="w-full" />
+    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+      <a href="#slide4" className="btn btn-circle">❮</a> 
+      <a href="#slide2" className="btn btn-circle">❯</a>
+    </div>
+  </div> 
+  <div id="slide2" className="carousel-item relative w-full">
+    <img src="https://i.ibb.co/rZkLdXk/two.jpg" className="w-full" />
+    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+      <a href="#slide1" className="btn btn-circle">❮</a> 
+      <a href="#slide3" className="btn btn-circle">❯</a>
+    </div>
+  </div> 
+  <div id="slide3" className="carousel-item relative w-full">
+    <img src="https://i.ibb.co/TkKbChj/three.jpg" className="w-full" />
+    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+      <a href="#slide2" className="btn btn-circle">❮</a> 
+      <a href="#slide4" className="btn btn-circle">❯</a>
+    </div>
+  </div> 
+  <div id="slide4" className="carousel-item relative w-full">
+    <img src="https://i.ibb.co/Jr8D2cc/dillon-kydd-2ke-CPb73a-QY-unsplash.jpg" className="w-full" />
+    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+      <a href="#slide3" className="btn btn-circle">❮</a> 
+      <a href="#slide1" className="btn btn-circle">❯</a>
+    </div>
+  </div>
+</div>
       </div>
 
       <div className="">
@@ -45,8 +64,8 @@ const Home = () => {
               <div className="">
               <h3 className="text-center text-1xl font-bold">{realE.estate_title}</h3>
               <div className="flex">
-                <p className="pt-3 pb-3 pl-8 text-sm font-medium">Section : {realE.segment_name}</p>
-                <p className="pt-3 pb-3 pl-12 text-sm font-medium">status : {realE.status}</p>
+                <p className="pt-3 pb-3 pl-8 text-base font-medium">Section : {realE.segment_name}</p>
+                <p className="pt-3 pb-3 pl-12 text-base font-medium">status : {realE.status}</p>
               </div>
               <p className="text-left font-semibold pl-8">{realE.description}</p>
               <p className="pt-3 pb-3 pl-8 text-left text-sm font-medium"><span className="text-left text-lg font-medium" >Location :</span>{realE.location}</p>
@@ -57,10 +76,10 @@ const Home = () => {
                 ))}
               </ul>
               <div className="flex">
-                <p className="pt-3 pb-3 pl-8 text-sm font-medium">Net Area : {realE.area}</p>
-                <p className="pt-3 pb-3 pl-12 text-sm font-medium">Price : {realE.price}</p>
+                <p className="pt-3 pb-3 pl-8 text-base font-medium text-emerald-500">Net Area : {realE.area}</p>
+                <p className="pt-3 pb-3 pl-12 text-base font-medium text-green-700">Price : {realE.price}</p>
               </div>
-              <Link to={`/${realE.id}`} key={index} className="">
+              <Link to={`/eastate/${realE.id}`} key={index} className="">
               <button className="bg-green-500 p-2 m-4 text-white rounded-md border-none" onClick={() => (realE)}>View Property</button>
               </Link>
               </div>

@@ -27,7 +27,8 @@ const Navber = () => {
                         <li><Link to={'/contact'}>Contact</Link></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">Re<span className="text-green-700">A</span>l Es<span className="text-green-700">T</span>ate</a>
+               <h1>Re<span className="text-green-800">A</span>l Es<span className="text-green-800">T</span>ate</h1> 
+
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -42,7 +43,7 @@ const Navber = () => {
                     {
                         user ? 
                         <>
-                            <li><img src={user.photoURL} alt="User" title={user.displayName} className="rounded-full h-8 w-8 mr-2" /></li>
+                            <li><img src={user.photoURL} alt="User" title={user.displayName} className="rounded-full h-8 w-8 mt-2 mr-2" /></li>
                             <li className="btn btn-success text-white m-1"><a onClick={handleLogOut} href="#">LogOut</a></li>
                         </>
                         :
