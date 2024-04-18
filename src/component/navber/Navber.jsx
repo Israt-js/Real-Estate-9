@@ -25,7 +25,6 @@ const Navber = () => {
                         <li><Link to={'/userprofile'}>User profile</Link></li>
                         <li><Link to={'/updateprofile'}>Update Profile</Link></li>
                         <li><Link to={'/register'}>Register</Link></li>
-                        <li><Link to={'/contact'}>Contact</Link></li>
                     </ul>
                 </div>
                <h1 className="text-3xl font-extrabold">Re<span className="text-green-600">A</span>l E<span className="text-green-600">s</span>ta<span className="text-green-600">T</span>e</h1> 
@@ -37,7 +36,6 @@ const Navber = () => {
                     <li><Link to={'/userprofile'}>User profile</Link></li>
                     <li><Link to={'/updateprofile'}>Update Profile</Link></li>
                     <li><Link to={'/register'}>Register</Link></li>
-                    <li><Link to={'/contact'}>Contact</Link></li>
                 </ul>
             </div>
             <div className="navbar-end" data-aos="flip-left">
