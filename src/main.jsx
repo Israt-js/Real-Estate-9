@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from './App.jsx';
 import './index.css';
 import Roote from './component/roote/Roote.jsx';
 import ErrorPage from './ErrorPage.jsx';
@@ -12,6 +11,8 @@ import AuthProvider from './Provider/AuthProvider.jsx';
 import EastateDtails from './component/EastateDetails/EastateDetails.jsx';
 import PrivateRout from './component/roote/PrivateRout.jsx';
 import UserProfile from './component/UserProfile/UserProfile.jsx';
+import UpdateProfile from './component/UpdateProfile/UpdateProfile.jsx';
+import SpecialHome from './component/SpecialHome/SpecialHome.jsx';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,14 @@ const router = createBrowserRouter([
       {
         path: "/userprofile",
         element: <UserProfile></UserProfile>
+      },
+      {
+        path: "/updateprofile",
+        element: <UpdateProfile></UpdateProfile>
+      },
+      {
+        path: "/",
+        element: <SpecialHome></SpecialHome>
       },
       {
         path: '/login',

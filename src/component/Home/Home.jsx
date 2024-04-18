@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import SpecialHome from "../SpecialHome/SpecialHome";
 
 const Home = () => {
   const [residence, setResidence] = useState([]);
@@ -53,10 +54,11 @@ const Home = () => {
     </div>
   </div>
 </div>
+
       </div>
 
       <div className="">
-      <h1 className="text-4xl font-extrabold mt-5">Estate</h1>
+      <h1 className="text-4xl font-extrabold mt-5 text-center">Estate</h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 w-full mt-12">
         {residence.map((realE, index) => (
           <div key={index} className="rounded-md m-3 bg-base-200">
@@ -86,6 +88,10 @@ const Home = () => {
           </div>
         ))}
       </div>
+      </div>
+      <div className="">
+      <h1 className="text-4xl font-extrabold mt-5 text-center">Special Home Available</h1>
+      <SpecialHome/>
       </div>
     </div>
   )

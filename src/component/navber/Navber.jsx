@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navber = () => {
     const { user, logOut } = useContext(AuthContext);
     const handleLogOut = () => {
         logOut()
-        .then(() => console.log('SUCCESSFULL'))
+        .then(() => console.log('SUCCESSFULLY LOGOUT'))
         .catch(error =>{
             console.log(error)
         })
@@ -23,17 +23,19 @@ const Navber = () => {
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to={'/'}>Home</Link></li>
                         <li><Link to={'/userprofile'}>User profile</Link></li>
+                        <li><Link to={'/updateprofile'}>Update Profile</Link></li>
                         <li><Link to={'/register'}>Register</Link></li>
                         <li><Link to={'/contact'}>Contact</Link></li>
                     </ul>
                 </div>
-               <h1>Re<span className="text-green-800">A</span>l Es<span className="text-green-800">T</span>ate</h1> 
+               <h1 className="text-3xl font-extrabold">Re<span className="text-green-600">A</span>l E<span className="text-green-600">s</span>ta<span className="text-green-600">T</span>e</h1> 
 
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li><Link to={'/'}>Home</Link></li>
                     <li><Link to={'/userprofile'}>User profile</Link></li>
+                    <li><Link to={'/updateprofile'}>Update Profile</Link></li>
                     <li><Link to={'/register'}>Register</Link></li>
                     <li><Link to={'/contact'}>Contact</Link></li>
                 </ul>

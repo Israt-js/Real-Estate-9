@@ -10,6 +10,7 @@ export default function ErrorPage() {
       <p>not found page</p>
       <p>
         <i>{error.statusText || error.message}</i>
+        
       </p>
       <button className="btn btn-success text-white"><Link to={'/'}>Go Home</Link></button>
     </div>

@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
   const { createUser } = useContext(AuthContext);
   const [registerError, setRegisterError] = useState('')
   const [success, setSuccess] = useState('');
+  const { signInUser } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false)
 
   const handleSubmit = async e => {
@@ -24,6 +25,14 @@ import 'react-toastify/dist/ReactToastify.css';
     }
     else if(!/[a-z]/.test(password)){
       setRegisterError('Must have a Lowercase letter in the password')
+    }
+    else if (signInUser !== password) {
+      setRegisterError('Passwords do not match');
+      return;
+    }
+    else if (signInUser !== email) {
+      setRegisterError('Email do not match');
+      return;
     }
     setRegisterError('');
     setSuccess('');
@@ -46,7 +55,7 @@ import 'react-toastify/dist/ReactToastify.css';
     <div>
       <div className="hero min-h-screen bg-base-200">
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-        <h1 className="text-5xl font-bold">Register</h1>
+        <h1 className="text-5xl font-bold text-center pt-2">Register</h1>
           <form onSubmit={handleSubmit} className="card-body">
           <div className="form-control">
               <label className="label">
@@ -69,6 +78,7 @@ import 'react-toastify/dist/ReactToastify.css';
             <div className="form-control">
                 <span className="">Password</span>
               <div className="relative">
+                
               <input type={ showPassword ? "text" : "password"} name='password' placeholder="Password" className="input input-bordered" required />
               <span className='absolute ml-[-25px] mt-4' onClick={() => setShowPassword(!showPassword)}>
               {
@@ -85,7 +95,7 @@ import 'react-toastify/dist/ReactToastify.css';
             registerError && <p className="text-red-600 text-xl">{registerError}</p>
           }
           <ToastContainer></ToastContainer>
-          <p>Already have an account? <Link to={'/login'} >Login</Link> </p>
+          <p className='text-2xl font-medium text-center p-5'>Already have an account? <Link to={'/login'} >Login</Link> </p>
         </div>
       </div>
     </div>

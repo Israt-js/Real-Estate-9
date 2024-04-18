@@ -50,4 +50,4 @@ Welcome to Real estate residence Website! This is a brief overview of the featur
   - react-router-dom
   - react-toastify
   - (other packages used for authentication and styling)
-
+  

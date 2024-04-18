@@ -5,6 +5,7 @@ const EstateDetails = () => {
     const { residential_estates } = data;
     const { id } = useParams();
     const eastate = residential_estates.find(item => item.id === parseInt(id));
+    
 
     return (
         <div className="">

@@ -8,8 +8,10 @@ import auth, { provider } from '../Firebase-config/firebase.config';
 const Login = () => {
   const { signInUser } = useContext(AuthContext);
   const [user, setUser] = useState('')
+  const [loginError, setLoginError] = useState('');
+  const { createUser } = useContext(AuthContext);
   const location = useLocation();
-  const navigate = useNavigate
+  const navigate = useNavigate();
   console.log('location in login page',location)
 
   const handleSubmit = e => {
@@ -25,8 +27,16 @@ const Login = () => {
       })
       .catch(error => {
         console.log(error);
+        setLoginError(error.message);
       })
-      
+      if (createUser !== password) {
+        setLoginError('Passwords do not match');
+        return;
+      }
+      else if (createUser !== email) {
+        setLoginError('Email do not match');
+        return;
+      }
   };
 
   const handleLogInWithPopup = () => {
@@ -57,7 +67,7 @@ const Login = () => {
     <div>
       <div className="hero min-h-screen bg-base-200">
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-        <h1 className="text-5xl font-bold">Login now!</h1>
+        <h1 className="text-5xl font-bold text-center">Login now!</h1>
           <form onSubmit={handleSubmit} className="card-body">
             <div className="form-control">
               <label className="label">
@@ -75,11 +85,12 @@ const Login = () => {
               <button type="submit" className="btn btn-success text-white">Login</button>
             </div>
           </form>
+          {loginError && <p className="text-red-600 text-xl">{loginError}</p>}
           <div className="">
             <button  className='btn w-full mb-2' onClick={handleLogInWithPopup}> <FaGoogle /> Google login</button>
             <button onClick={HandleFacebookAuth} className='btn btn-primary w-full text-white'> <FaFacebook/> Facebook</button>
       </div>
-      <p>Don't have an account? <Link to={'/register'}>Register</Link></p>
+      <p className='text-2xl font-medium text-center p-5'>Don't have an account? <Link to={'/register'}>Register</Link></p>
         </div>
       </div>
 

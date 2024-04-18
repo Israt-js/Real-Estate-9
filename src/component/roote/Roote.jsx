@@ -6,9 +6,11 @@ import Footer from "../Footer/Footer";
 const Roote = () => {
     return(
         <div className="">
+            
        <Navber></Navber>
        <Outlet></Outlet>
        <Footer></Footer>
+
         </div>
     )
 }

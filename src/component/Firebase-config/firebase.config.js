@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, FacebookAuthProvider } from "firebase/auth";
 
+
 // Your web app's Firebase configuration
 // const firebaseConfig = {
 //   apiKey: "YOUR_API_KEY",
@@ -12,12 +13,12 @@ import { getAuth, FacebookAuthProvider } from "firebase/auth";
 //   appId: "YOUR_APP_ID"
 // };
 const firebaseConfig = {
-  apiKey: "AIzaSyAMkhdju46eCVpU-DInkm4UkM6uRiWga7k",
-  authDomain: "real-estate-residence.firebaseapp.com",
-  projectId: "real-estate-residence",
-  storageBucket: "real-estate-residence.appspot.com",
-  messagingSenderId: "483292519413",
-  appId: "1:483292519413:web:f4b0a1bb16c406eb5a9ebc"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase

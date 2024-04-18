@@ -8,6 +8,7 @@ const Footer = () => {
       ACME Industries Ltd. <br/>Providing reliable tech since 1992
     </p> 
     <p>Copyright © 2024 - All right reserved</p>
+    
   </aside> 
   <nav>
     <div className="grid grid-flow-col gap-4">
