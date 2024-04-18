@@ -9,7 +9,6 @@ import 'react-toastify/dist/ReactToastify.css';
   const { createUser } = useContext(AuthContext);
   const [registerError, setRegisterError] = useState('')
   const [success, setSuccess] = useState('');
-  const { signInUser } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false)
 
   const handleSubmit = async e => {
@@ -25,14 +24,6 @@ import 'react-toastify/dist/ReactToastify.css';
     }
     else if(!/[a-z]/.test(password)){
       setRegisterError('Must have a Lowercase letter in the password')
-    }
-    else if (signInUser !== password) {
-      setRegisterError('Passwords do not match');
-      return;
-    }
-    else if (signInUser !== email) {
-      setRegisterError('Email do not match');
-      return;
     }
     setRegisterError('');
     setSuccess('');

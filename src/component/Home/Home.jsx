@@ -88,7 +88,7 @@ const Home = () => {
           </div>
         ))}
       </div>
-      </div>
+      </div> <br />
       <div className="">
       <h1 className="text-4xl font-extrabold mt-5 text-center">Special Home Available</h1>
       <SpecialHome/>

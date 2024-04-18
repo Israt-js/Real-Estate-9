@@ -4,12 +4,14 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { FaGoogle,FaFacebook } from 'react-icons/fa';
 import auth, { provider } from '../Firebase-config/firebase.config';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const { signInUser } = useContext(AuthContext);
   const [user, setUser] = useState('')
   const [loginError, setLoginError] = useState('');
-  const { createUser } = useContext(AuthContext);
+  const [success, setSuccess] = useState('');
   const location = useLocation();
   const navigate = useNavigate();
   console.log('location in login page',location)
@@ -22,6 +24,10 @@ const Login = () => {
     signInUser(email, password)
       .then(result => {
         console.log(result.user);
+        setSuccess('Successfully created User');
+        toast.success('Successfully registered!', {
+  
+        });
         e.target.reset();
         navigate(location?.state ? location.state : '/')
       })
@@ -29,14 +35,6 @@ const Login = () => {
         console.log(error);
         setLoginError(error.message);
       })
-      if (createUser !== password) {
-        setLoginError('Passwords do not match');
-        return;
-      }
-      else if (createUser !== email) {
-        setLoginError('Email do not match');
-        return;
-      }
   };
 
   const handleLogInWithPopup = () => {
@@ -85,6 +83,7 @@ const Login = () => {
               <button type="submit" className="btn btn-success text-white">Login</button>
             </div>
           </form>
+          <ToastContainer></ToastContainer>
           {loginError && <p className="text-red-600 text-xl">{loginError}</p>}
           <div className="">
             <button  className='btn w-full mb-2' onClick={handleLogInWithPopup}> <FaGoogle /> Google login</button>
