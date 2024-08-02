@@ -5,93 +5,122 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-  const RegisterPage = () => {
+const RegisterPage = () => {
   const { createUser } = useContext(AuthContext);
-  const [registerError, setRegisterError] = useState('')
+  const [registerError, setRegisterError] = useState('');
   const [success, setSuccess] = useState('');
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = async e => {
+  const validatePassword = (password) => {
+    if (password.length < 6) {
+      return 'Password must be at least 6 characters long';
+    }
+    if (!/[A-Z]/.test(password)) {
+      return 'Password must contain at least one uppercase letter';
+    }
+    if (!/[a-z]/.test(password)) {
+      return 'Password must contain at least one lowercase letter';
+    }
+    return '';
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    console.log(email, password);
+    const { name, photoURL, email, password } = e.target.elements;
 
-    if(password.length < 6){
-      setRegisterError('password must be 6 charecter')
-    }else if(!/[A-Z]/.test(password)){
-      setRegisterError('Must have an Uppercase letter in the password')
+    const passwordError = validatePassword(password.value);
+    if (passwordError) {
+      setRegisterError(passwordError);
+      return;
     }
-    else if(!/[a-z]/.test(password)){
-      setRegisterError('Must have a Lowercase letter in the password')
-    }
+
     setRegisterError('');
     setSuccess('');
-    createUser(email, password)
-    .then(result => {
-      console.log(result.user)
-      setSuccess('Successfully created User');
-      toast.success('Successfully registered!', {
 
-      });
+    try {
+      await createUser(email.value, password.value);
+      setSuccess('Successfully created User');
+      toast.success('Successfully registered!');
       e.target.reset();
-    })
-    .catch(error => {
-      console.log(error);
+    } catch (error) {
+      console.error('Registration Error:', error);
       setRegisterError(error.message);
-    })
+    }
   };
 
   return (
-    <div>
-      <div className="hero min-h-screen bg-base-200">
-        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-        <h1 className="text-5xl font-bold text-center pt-2">Register</h1>
-          <form onSubmit={handleSubmit} className="card-body">
-          <div className="form-control">
-              <label className="label">
-                <span className="label-text">Name</span>
-              </label>
-              <input type="text" name="name" placeholder="Type your name" className="input input-bordered" required />
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="w-full max-w-md p-8 bg-white shadow-lg rounded-lg">
+        <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">Register</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Type your name"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="photoURL" className="block text-gray-700 font-medium mb-2">Photo URL</label>
+            <input
+              type="text"
+              id="photoURL"
+              name="photoURL"
+              placeholder="Enter your photo URL"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email address"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="password" className="block text-gray-700 font-medium mb-2">Password</label>
+            <div className="relative">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                id="password"
+                name="password"
+                placeholder="Password"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
+              <button
+                type="button"
+                className="absolute inset-y-0 right-0 px-3 flex items-center text-gray-600"
+                onClick={() => setShowPassword(!showPassword)}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
             </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">PhotoURL</span>
-              </label>
-              <input type="text" name="photoURL" placeholder="Enter your photo URL" className="input input-bordered" required />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
-              <input type="email" name="email" placeholder="Email address" className="input input-bordered" required />
-            </div>
-            <div className="form-control">
-                <span className="">Password</span>
-              <div className="relative">
-                
-              <input type={ showPassword ? "text" : "password"} name='password' placeholder="Password" className="input input-bordered" required />
-              <span className='absolute ml-[-25px] mt-4' onClick={() => setShowPassword(!showPassword)}>
-              {
-                 showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
-              }
-              </span>
-              </div>
-            </div>
-            <div className="form-control mt-6">
-              <button type="submit" className="btn btn-success text-white">Register</button>
-            </div>
-          </form>
-          {
-            registerError && <p className="text-red-600 text-xl">{registerError}</p>
-          }
-          <ToastContainer></ToastContainer>
-          <p className='text-2xl font-medium text-center p-5'>Already have an account? <Link to={'/login'} >Login</Link> </p>
-        </div>
+          </div>
+          <div className="mb-4">
+            <button type="submit" className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              Register
+            </button>
+          </div>
+        </form>
+        {registerError && <p className="text-red-500 text-center mt-4">{registerError}</p>}
+        <ToastContainer />
+        <p className="text-gray-600 text-center mt-4">
+          Already have an account? <Link to="/login" className="text-blue-500 font-medium hover:underline">Login</Link>
+        </p>
       </div>
     </div>
   );
 };
 
 export default RegisterPage;
-

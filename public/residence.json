@@ -3,42 +3,6 @@
 "residential_estates": [
     {
       "id": 1,
-      "estate_title": "Luxurious Villa with Ocean View",
-      "segment_name": "Luxury",
-      "description": "Experience ultimate luxury in this spacious villa with breathtaking ocean views.",
-      "price": "$2,500,000",
-      "status": "sale",
-      "area": "5000 sq ft",
-      "location": "Malibu, California",
-      "facilities": ["5 bedrooms", "Infinity pool", "Gourmet kitchen", "Home theater"],
-      "image": "https://i.ibb.co/gDd9NNt/four.jpg"
-    },
-    {
-      "id": 2,
-      "estate_title": "Modern Apartment in Downtown",
-      "segment_name": "Urban Living",
-      "description": "Live in style in this contemporary apartment located in the heart of the city.",
-      "price": "$3,000/month",
-      "status": "rent",
-      "area": "1200 sq ft",
-      "location": "New York City, New York",
-      "facilities": ["Open floor plan", "Fitness center", "Rooftop terrace", "Concierge service"],
-      "image": "https://i.ibb.co/TqySqsw/Modern.jpg"
-    },
-    {
-      "id": 3,
-      "estate_title": "Cozy Cottage in the Countryside",
-      "segment_name": "Rural Retreat",
-      "description": "Escape the hustle and bustle in this charming cottage surrounded by nature.",
-      "price": "$350,000",
-      "status": "sale",
-      "area": "1500 sq ft",
-      "location": "Cotswolds, England",
-      "facilities": ["2 bedrooms", "Fireplace", "Garden", "Scenic views"],
-      "image": "https://i.ibb.co/x5yW5ZR/Cozy.jpg"
-    },
-    {
-      "id": 4,
       "estate_title": "Family Home with Mountain Views",
       "segment_name": "Suburban Living",
       "description": "Ideal family home offering stunning views of the nearby mountains.",
@@ -50,7 +14,7 @@
       "image": "https://i.ibb.co/6tHd4hy/Family.png"
     },
     {
-      "id": 5,
+      "id": 2,
       "estate_title": "Beachfront Condo with Panoramic Views",
       "segment_name": "Beach Living",
       "description": "Enjoy beachfront living in this modern condo with stunning panoramic views of the ocean.",
@@ -62,7 +26,7 @@
       "image": "https://i.ibb.co/61bfXw6/Beachfront.png"
     },
     {
-      "id": 6,
+      "id": 3,
       "estate_title": "Historic Townhouse in the City Center",
       "segment_name": "Heritage Homes",
       "description": "Own a piece of history with this beautifully restored historic townhouse in the city center.",

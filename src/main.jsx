@@ -13,6 +13,7 @@ import PrivateRout from './component/roote/PrivateRout.jsx';
 import UserProfile from './component/UserProfile/UserProfile.jsx';
 import UpdateProfile from './component/UpdateProfile/UpdateProfile.jsx';
 import SpecialHome from './component/SpecialHome/SpecialHome.jsx';
+import PropertyCard from './Property/PropertyCard.jsx';
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <RegisterPage></RegisterPage>,
+      },
+      {
+        path: '/pro',
+        element: <PropertyCard></PropertyCard>
       }
     ],
   },
