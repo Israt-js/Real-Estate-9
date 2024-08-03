@@ -16,7 +16,7 @@ const Home = () => {
     <div className="min-h-screen bg-gray-100">
 
       {/* Hero Section */}
-      <div className="col-span-1 lg:flex bg-gradient-to-r from-green-400 via-lime-400 to-pink-500 text-white p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+      <div className="col-span-1 lg:flex bg-gradient-to-r from-green-400 to-blue-400 text-white p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
         <div className="pt-24 w-full lg:w-1/2 mx-auto lg:mx-0 lg:ml-[10%] h-96 flex items-center justify-center">
           <div className="text-center lg:text-left">
             <div className="max-w-md mx-auto lg:mx-0">
@@ -64,10 +64,10 @@ const Home = () => {
                   <p className="text-base font-semibold text-green-700">Price: {realE.price}</p>
                 </div>
                 <Link to={`/estate/${realE.id}`} className="block text-center mt-8">
-                  <button className="bg-blue-600 text-white py-2 px-6 rounded-full shadow-lg hover:bg-blue-700 transition duration-300">
-                    View Property
-                  </button>
-                </Link>
+                <button className="bg-blue-600 text-white py-2 px-6 rounded-full shadow-lg hover:bg-blue-700 transition duration-300">
+                  View Property
+                </button>
+              </Link>
               </div>
             </div>
           ))}
