@@ -13,7 +13,7 @@
     "@headlessui/react": "^2.1.2",
     "@react-navigation/bottom-tabs": "^6.5.20",
     "aos": "^2.3.4",
-    "firebase": "^10.11.0",
+    "firebase": "^10.12.5",
     "leaflet": "^1.9.4",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
