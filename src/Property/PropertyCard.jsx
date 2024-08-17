@@ -17,7 +17,7 @@ const properties = [
     location: 'Suburbs',
     price: '$350,000',
     description: 'A charming home with a spacious backyard, perfect for families.',
-    imageUrl: 'https://i.ibb.co/zr4mr83/clay-banks-yqoz-Bsi5ioc-unsplash.jpg',
+    imageUrl: 'https://i.ibb.co/6tHd4hy/Family.png',
     mapUrl: 'https://www.google.com/maps?q=Suburbs'
   },
   {

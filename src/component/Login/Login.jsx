@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
-import { signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from 'firebase/auth';
-import { FaGoogle, FaFacebook } from 'react-icons/fa';
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { FaGoogle } from 'react-icons/fa';
 import auth from '../Firebase-config/firebase.config';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -41,7 +41,6 @@ const Login = () => {
   };
 
   const handleGoogleLogin = () => handleAuthPopup(new GoogleAuthProvider());
-  const handleFacebookLogin = () => handleAuthPopup(new FacebookAuthProvider());
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -88,13 +87,6 @@ const Login = () => {
             aria-label="Log in with Google"
           >
             <FaGoogle className="mr-2" /> Google Login
-          </button>
-          <button
-            className="w-full flex items-center justify-center bg-blue-600 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
-            onClick={handleFacebookLogin}
-            aria-label="Log in with Facebook"
-          >
-            <FaFacebook className="mr-2" /> Facebook Login
           </button>
         </div>
         <p className="text-center text-gray-600 mt-6">
